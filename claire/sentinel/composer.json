@@ -1,0 +1,23 @@
+{
+    "name": "claire/sentinel",
+    "description": "Request firewall, upload inspection, admin activity alerts and file-integrity scanning for Laravel.",
+    "version": "1.0.0",
+    "type": "library",
+    "license": "proprietary",
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^10.0|^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Claire\\Sentinel\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Claire\\Sentinel\\SentinelServiceProvider"
+            ]
+        }
+    }
+}

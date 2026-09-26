@@ -1,0 +1,29 @@
+# Hardening (2026-09-26): user uploads must never be executed.
+# Matches double extensions too (e.g. shell.php.jpg), which Apache would otherwise hand to PHP.
+<FilesMatch "(?i)\.(php[0-9]*|pht|phtml|phar|phps|inc|cgi|pl|py|sh|shtml|asp|aspx|jsp)(\.|$)">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Hidden files (.htaccess drops, .mo_settings.json, etc.)
+<FilesMatch "^\.">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+<IfModule mod_mime.c>
+    RemoveHandler .php .php5 .php7 .php8 .phtml .phar .pht
+    RemoveType .php .php5 .php7 .php8 .phtml .phar .pht
+</IfModule>
+
+Options -ExecCGI -Indexes

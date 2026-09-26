@@ -1,0 +1,16 @@
+# Installed by ClaireSentinel (sentinel:scan --fix restores it if removed or altered).
+# Nothing in this folder is served over the web.
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>
+
+<IfModule mod_mime.c>
+    RemoveHandler .php .php5 .php7 .php8 .phtml .phar .pht
+    RemoveType .php .php5 .php7 .php8 .phtml .phar .pht
+</IfModule>
+
+Options -ExecCGI -Indexes

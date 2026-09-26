@@ -1,0 +1,58 @@
+{
+    "name": "serenade18/clairesentinel",
+    "description": "Security layer for Laravel: request firewall with auto-banning, upload inspection, admin activity alerts and file-integrity / webshell scanning.",
+    "keywords": ["laravel", "security", "firewall", "waf", "malware", "webshell", "integrity", "upload", "intrusion-detection"],
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/serenade18/claireSentinel",
+    "support": {
+        "issues": "https://github.com/serenade18/claireSentinel/issues",
+        "source": "https://github.com/serenade18/claireSentinel"
+    },
+    "require": {
+        "php": "^8.1",
+        "ext-json": "*",
+        "illuminate/auth": "^10.0|^11.0|^12.0|^13.0",
+        "illuminate/cache": "^10.0|^11.0|^12.0|^13.0",
+        "illuminate/console": "^10.0|^11.0|^12.0|^13.0",
+        "illuminate/contracts": "^10.0|^11.0|^12.0|^13.0",
+        "illuminate/database": "^10.0|^11.0|^12.0|^13.0",
+        "illuminate/http": "^10.0|^11.0|^12.0|^13.0",
+        "illuminate/log": "^10.0|^11.0|^12.0|^13.0",
+        "illuminate/mail": "^10.0|^11.0|^12.0|^13.0",
+        "illuminate/routing": "^10.0|^11.0|^12.0|^13.0",
+        "illuminate/support": "^10.0|^11.0|^12.0|^13.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.0|^9.0|^10.0|^11.0",
+        "phpunit/phpunit": "^10.5|^11.0|^12.0"
+    },
+    "suggest": {
+        "ext-zip": "Required to inspect uploaded and on-disk zip archives."
+    },
+    "autoload": {
+        "psr-4": {
+            "ClaireSentinel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ClaireSentinel\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ClaireSentinel\\SentinelServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
